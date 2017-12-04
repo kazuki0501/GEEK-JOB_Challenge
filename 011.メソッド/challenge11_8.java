@@ -37,7 +37,7 @@ public class challenge11_8 extends HttpServlet {
         String id[] = {"123456","123457","123458"};
         String name[] = {"鈴木","田中","佐藤"};
         String birth[] = {"3月1日","6月1日","5月1日"};
-        String address[] = {"null","東京都","埼玉県"};
+        String address[] = {null,"東京都","埼玉県"};
             
         String[] result = new String[4];
         
@@ -67,18 +67,22 @@ public class challenge11_8 extends HttpServlet {
             limitを利用して２名のプロフィール表示までで停止する様に処理を実装してください。
             */
             
+            
             int i;
             Integer limit = 2;
             
             for(i = 0; i < limit; i++){
-                out.println("名前：" + profile(i)[1] + "<br>");
-                out.println("生年月日：" + profile(i)[2] + "<br>");
                 
-                if(profile(i)[3] == "null"){
-                   out.println("<br>");
-                   continue; 
+                String[] result2 = profile(i);
+                
+                out.print(result2[1] + "<br>");  // 名前を表示
+                out.print(result2[2] + "<br>");  // 生年月日を表示
+                
+                if(profile(i)[3] == null){
+                    out.println("<br>");
+                    continue; 
                 }else{
-                    out.println("住所：" + profile(i)[3] + "<br>" + "<br>");
+                    out.print(result2[3] + "<br>");  // 住所を表示
                 }
             }            
             
