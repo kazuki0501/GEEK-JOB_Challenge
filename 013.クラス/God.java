@@ -59,14 +59,10 @@ public class God extends HttpServlet {
             
             out.print("ディーラーのカードの合計値は..." + d.open() + "です。<br>");
             out.print("プレイヤーのカードの合計値は..." + u.open() + "です。<br><br>");
-            //↑何故かセーフの場合表示されない・・・
             
             out.print("表示された文字がtrueならセーフ、falseならアウトです。ディーラーは..." + d.checkSum() + "<br>");
             out.print("表示された文字がtrueならセーフ、falseならアウトです。プレイヤーは..." + u.checkSum() + "<br><br>");
             //↑myCardsを全て足し、変数checkの中に判定後のtrueかfalseを格納
-            //ここも何故かtrueの場合表示されない・・・
-            //というかオープンメソッドでmyCardsの合計21以上を表示すると、false表示もでない。
-            //両方アウトの場合は全て表示された
             
             out.print("セーフで、数字の多い方の勝ちです！");
             
