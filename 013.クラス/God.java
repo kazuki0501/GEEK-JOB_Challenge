@@ -60,11 +60,22 @@ public class God extends HttpServlet {
             out.print("ディーラーのカードの合計値は..." + d.open() + "です。<br>");
             out.print("プレイヤーのカードの合計値は..." + u.open() + "です。<br><br>");
             
-            out.print("表示された文字がtrueならセーフ、falseならアウトです。ディーラーは..." + d.checkSum() + "<br>");
-            out.print("表示された文字がtrueならセーフ、falseならアウトです。プレイヤーは..." + u.checkSum() + "<br><br>");
-            //↑myCardsを全て足し、変数checkの中に判定後のtrueかfalseを格納
-            
-            out.print("セーフで、数字の多い方の勝ちです！");
+            if(d.checkSum() == false && u.checkSum() == false){
+                out.print("ディーラーもプレイヤーもバーストしました！<br>");
+                out.print("両方負けです！<br>");
+            }else if(d.checkSum() == false){
+                out.print("ディーラーがバーストしました！<br>");
+                out.print("ディーラーの負けです！<br>");
+            }else if(u.checkSum() == false){
+                out.print("プレイヤーがバーストしました！<br>");
+                out.print("プレイヤーの負けです！<br>");
+            }else if(d.open() == u.open()){
+                out.print("カードの合計値が一緒なので引き分けです！<br>");
+            }else if(d.open() > u.open()){
+                out.print("ディーラーのカードの合計値の方が高いのでディーラーの勝ちです！<br>");
+            }else if(u.open() > d.open()){
+                out.print("プレイヤーのカードの合計値の方が高いのでプレイヤーの勝ちです！<br>");
+            }
             
             out.println("</body>");
             out.println("</html>");
