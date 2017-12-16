@@ -12,21 +12,19 @@
         <title>JSP Page</title>
     </head>
     <body>
-        
         <form action="./challenge16" method="post">
-            名前<br>
+            <big><strong>名前</strong></big><br>
             <input type="text" name="nametext"><br>
             <br>
-            性別<br>
+            <big><strong>性別</strong></big><br>
             <input type="radio" name="radiobutton" value="男"> 男<br>
             <input type="radio" name="radiobutton" value="女"> 女<br>
             <br>
-            趣味記入欄<br>
+            <big><strong>趣味記入欄</strong></big><br>
             <textarea name="hobbytextarea" cols="50" rows="5"></textarea><br>
             <br>
             <br>
-            <input type="submit" name="submitbutton">
+            <input type="submit" name="submitbutton"><br>
         </form>
-        
     </body>
 </html>
