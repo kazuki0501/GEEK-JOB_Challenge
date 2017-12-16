@@ -13,17 +13,19 @@
     </head>
     <body>
         
-        <form action="./challenge16.java" method="post">
-            
+        <form action="./challenge16" method="post">
             名前<br>
             <input type="text" name="nametext"><br>
             <br>
             性別<br>
-            <input type="radio" name="radiobutton" value="1"> 男<br>
-            <input type="radio" name="radiobutton" value="2"> 女<br>
+            <input type="radio" name="radiobutton" value="男"> 男<br>
+            <input type="radio" name="radiobutton" value="女"> 女<br>
             <br>
             趣味記入欄<br>
             <textarea name="hobbytextarea" cols="50" rows="5"></textarea><br>
+            <br>
+            <br>
+            <input type="submit" name="submitbutton">
         </form>
         
     </body>
