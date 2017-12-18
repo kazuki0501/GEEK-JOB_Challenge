@@ -86,10 +86,10 @@ public class query_string extends HttpServlet {
             //総額に応じたポイントが付きます。ポイントを計算し表示
             out.print("総額に応じたポイントが付きます。今回付与されたポイントは...<br>");
             double point = 0;
-            if(total >= 3000){
-                point = total * 0.04;
-            }else if(total >= 5000){
+            if(total >= 5000){
                 point = total * 0.05;
+            }else if(total >= 3000){
+                point = total * 0.04;
             }
             out.print(point);
             out.print("ポイントです！<br>");
