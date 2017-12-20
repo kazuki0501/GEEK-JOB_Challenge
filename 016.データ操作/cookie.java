@@ -39,11 +39,13 @@ public class cookie extends HttpServlet {
         
         // Try-with-resource 文（ Java9 で改良されている）
         try (PrintWriter out = response.getWriter()) {
+            
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet cookie</title>");            
+            //out.println("<meta charset = 'UTF-8'>");
+            out.println("<title>Servlet cookie</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet cookie at " + request.getContextPath() + "</h1>");
@@ -57,24 +59,29 @@ public class cookie extends HttpServlet {
                 for(int i = 0; i < cs.length; i++){
                     if(cs[i].getName().equals("logintime")){
                         String decoded = URLDecoder.decode(cs[i].getValue(), "UTF-8");
-                        out.print("最後のログインは、" + decoded);
+                        out.print("前回のログインは、" + decoded + "です！");
+                        //out.print("前回のログインは、" + cs[i].getValue());
                         break;
                     }
                 }
+            }else{
+                out.print("初回のログインです！");
             }
             
             //現在時刻インスタンス
             Date now = new Date();
             //時刻表示フォーマット
             SimpleDateFormat sdf =
-                new SimpleDateFormat("yyyy年 MM月 d日 HH時 m分 s秒");
+                new SimpleDateFormat("yyyy年 MM月 dd日 HH時 mm分 ss秒");
+            
+            //String test = sdf.format(now);
             
             //文字のエンコード（パソコン→ネットワークの処理）
             String encoded = URLEncoder.encode(sdf.format(now), "UTF-8");
 
             //Cookieに現在時刻を登録、反映
             Cookie c = new Cookie("logintime", encoded);
-            //Cookie c = new Cookie("logintime", sdf.format(now));
+            //Cookie c = new Cookie("logintime", test);
             response.addCookie(c);
             
             out.println("</body>");
