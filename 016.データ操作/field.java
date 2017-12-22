@@ -59,11 +59,12 @@ public class field extends HttpServlet {
             out.print("今回入力された趣味" + "<br>");
             out.print(request.getParameter("hobby") + "<br><br>");
             
+            //セッション変数を用意して、セッションのデータを代入
             HttpSession input_name = request.getSession();
             HttpSession input_gender = request.getSession();
             HttpSession input_hobby = request.getSession();
             
-            
+            //変数got_〇〇〇にセッションから取り出した各データを代入
             String got_name = (String)input_name.getAttribute("session_name");
             String got_gender = (String)input_gender.getAttribute("session_gender");
             String got_hobby = (String)input_hobby.getAttribute("session_hobby");
